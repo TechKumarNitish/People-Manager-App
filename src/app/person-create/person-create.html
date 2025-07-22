@@ -1,0 +1,26 @@
+<div *ngIf="visible" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+  <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+    <h2 class="text-xl font-semibold mb-4">Create Person</h2>
+    <form>
+      <label class="block mb-2">Name:
+        <input [(ngModel)]="newPerson.name" name="name" class="border rounded w-full px-2 py-1" required />
+      </label>
+      <label class="block mb-2">Age:
+        <input [(ngModel)]="newPerson.age" name="age" type="number" class="border rounded w-full px-2 py-1" required />
+      </label>
+      <label class="block mb-2">Gender:
+        <select [(ngModel)]="newPerson.gender" name="gender" class="border rounded w-full px-2 py-1">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </label>
+      <label class="block mb-4">Mobile:
+        <input [(ngModel)]="newPerson.mobile" name="mobile" class="border rounded w-full px-2 py-1" required />
+      </label>
+      <div class="flex justify-end gap-2">
+        <button type="button" (click)="handleCancel()" class="bg-gray-300 px-4 py-2 rounded">Cancel</button>
+        <button type="submit"  (click)="handleCreate()" class="bg-blue-600 text-white px-4 py-2 rounded">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

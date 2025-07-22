@@ -1,0 +1,24 @@
+<!-- Example: c:\Users\rskba\TheRightDoc\PeopleManagerApp\src\app\edit-modal\edit-modal.component.html -->
+<div *ngIf="visible" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
+    <h2 class="text-xl font-bold mb-4">Edit Person</h2>
+    <form (ngSubmit)="handleConfirm()">
+      <label class="block mb-2">Name:
+        <input [(ngModel)]="person.name" name="name" class="border rounded px-2 py-1 w-full" />
+      </label>
+      <label class="block mb-2">Age:
+        <input [(ngModel)]="person.age" name="age" type="number" class="border rounded px-2 py-1 w-full" />
+      </label>
+      <label class="block mb-2">Gender:
+        <input [(ngModel)]="person.gender" name="gender" class="border rounded px-2 py-1 w-full" />
+      </label>
+      <label class="block mb-4">Mobile:
+        <input [(ngModel)]="person.mobile" name="mobile" class="border rounded px-2 py-1 w-full" />
+      </label>
+      <div class="flex justify-end gap-2">
+        <button type="button" (click)="handleCancel()" class="px-4 py-2 rounded bg-gray-300">Cancel</button>
+        <button type="submit" class="px-4 py-2 rounded bg-blue-600 text-white">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
