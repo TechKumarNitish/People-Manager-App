@@ -15,7 +15,6 @@ export class PersonCreate {
   @Output() confirm = new EventEmitter<Person>();
   @Output() cancel = new EventEmitter<void>();
 
-  // private constructor(private personService: PersonService) {}
 
   newPerson: Person = {
     name: '',
@@ -25,7 +24,6 @@ export class PersonCreate {
   };
 
  handleCreate() {
-  console.log("handleCreate", this.newPerson);
     this.confirm.emit(this.newPerson);
     this.newPerson = { name: '', age: 0, gender: 'Male', mobile: '' }; // reset form
   }
@@ -34,11 +32,4 @@ export class PersonCreate {
     this.cancel.emit();
   }
 
-  // createPerson(person: Person) {
-  //   console.log("confirmCreate", person);
-
-  //   this.personService.create(person).subscribe((newPerson) => {
-  //     this.confirm.emit(this.newPerson);
-  //   })
-  // }
 }

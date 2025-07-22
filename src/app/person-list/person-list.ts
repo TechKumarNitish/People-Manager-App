@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common'; // ✅ Import this
 import { RouterModule } from '@angular/router'; // For [routerLink]
 import { PersonService } from '../person';
@@ -11,7 +11,8 @@ import { PersonCreate } from '../person-create/person-create';
   selector: 'app-person-list',
   imports: [CommonModule, RouterModule, PersonDelete, PersonEdit, PersonCreate],
   templateUrl: './person-list.html',
-  styleUrl: './person-list.css'
+  styleUrl: './person-list.css',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PersonList {
   people: Person[] = [];
@@ -80,13 +81,11 @@ export class PersonList {
   }
 
   confirmCreate(person: Person) {
-    console.log("confirmCreate", person);
 
-    // this.personService.create(person).subscribe((newPerson) => {
-    //   this.people.push(newPerson);
-    //   this.showCreateModal = false;
-
-    // })
+    this.personService.create(person).subscribe((newPerson) => {
+      this.people.push(newPerson);
+      this.showCreateModal = false;
+    })
   }
 
   cancelCreate() {

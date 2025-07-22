@@ -48,6 +48,6 @@
         (confirm)="confirmDelete(selectedPerson._id)" (cancel)="cancelDelete()">
     </app-delete-modal>
 
-    <app-person-create [visible]="showCreateModal" (create)="($event)=>console.log($event)" (cancel)="cancelCreate()">
+    <app-person-create [visible]="showCreateModal" (confirm)="confirmCreate($event)" (cancel)="cancelCreate()">
     </app-person-create>
 </div>
